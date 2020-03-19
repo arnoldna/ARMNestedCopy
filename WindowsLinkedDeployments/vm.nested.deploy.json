@@ -86,7 +86,6 @@
             "vmName": {"value": "[parameters('vmName')]"},
             "assignedDataDisks": {"value": "[parameters('assignedDataDisks')]"},
             "vmSize": {"value": "[parameters('vmSize')]"},
-            "tags": {"value": "[parameters('tags')]"},
             "deploymentEnvironmentName": { "value": "[parameters('deploymentEnvironmentName')]" }
         },
         "parametersVm": "[variables(parameters('deploymentEnvironmentName'))]",
