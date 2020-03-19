@@ -58,7 +58,7 @@
     "variables": {
         "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'vm.deploy.json')]",
         "nate-test2-rg": {
-            "adminUsername": {"value": "Admin4IDT"},
+            "adminUsername": {"value": "[parameters('adminUsername')]"},
             "adminPassword": {"value": "[parameters('adminPassword')]"},
             "dnsLabelPrefix": {"value": "[parameters('dnsLabelPrefix')]"},
             "vmName": {"value": "[parameters('vmName')]"},
