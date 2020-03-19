@@ -65,7 +65,7 @@
     },
     "variables": {
         "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'windowsVM.azuredeploy.json', parameters('_artifactsLocationSasToken'))]",
-        "nate-test-rg": {
+        "nate-test2-rg": {
             "windowsVMImage":{"value":""},
             "OSVersion": {"value": "[parameters('OSVersion')]"},
             "imagePublisher": {"value": "MicrosoftWindowsServer"},
