@@ -60,6 +60,7 @@
         "nate-test2-rg": {
             "adminUsername": {"value": "Admin4IDT"},
             "adminPassword": {"value": "[parameters('adminPassword')]"},
+            "dnsLabelPrefix": {"value": "[parameters('dnsLabelPrefix')]"},
             "vmName": {"value": "[parameters('vmName')]"},
             "assignedDataDisks": {"value": "[parameters('assignedDataDisks')]"},
             "vmSize": {"value": "[parameters('vmSize')]"},
