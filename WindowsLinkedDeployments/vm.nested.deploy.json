@@ -66,6 +66,7 @@
             "vmSize": {"value": "[parameters('vmSize')]"},
             "deploymentEnvironmentName": { "value": "[parameters('deploymentEnvironmentName')]" }
         },
+        
         "prod-rg": {
             "adminUsername": {"value": "[parameters('adminUsername')]"},
             "adminPassword": {"value": "[parameters('adminPassword')]"},
