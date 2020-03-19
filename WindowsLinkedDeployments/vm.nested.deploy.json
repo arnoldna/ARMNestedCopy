@@ -11,12 +11,6 @@
         "assignedDataDisks":{
             "type": "object"
         },
-        "tags": {
-            "type": "object",
-            "metadata": {
-                "description": "Optional. Tags of the Virtual Network resource."
-            }
-        },
         "OSVersion": {
             "type": "string",
             "defaultValue": "2016-Datacenter",
