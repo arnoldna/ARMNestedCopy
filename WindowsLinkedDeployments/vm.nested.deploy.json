@@ -56,7 +56,7 @@
         }
     },
     "variables": {
-        "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'VM.deploy.json')]",
+        "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'vm.deploy.json')]",
         "nate-test2-rg": {
             "windowsVMImage":{"value":""},
             "OSVersion": {"value": "[parameters('OSVersion')]"},
