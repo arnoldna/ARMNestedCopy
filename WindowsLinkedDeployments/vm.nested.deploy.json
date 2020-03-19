@@ -57,7 +57,7 @@
     },
     "variables": {
         "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'vm.deploy.json')]",
-        "nate-test2-rg": {
+        "test-rg": {
             "adminUsername": {"value": "[parameters('adminUsername')]"},
             "adminPassword": {"value": "[parameters('adminPassword')]"},
             "dnsLabelPrefix": {"value": "[parameters('dnsLabelPrefix')]"},
