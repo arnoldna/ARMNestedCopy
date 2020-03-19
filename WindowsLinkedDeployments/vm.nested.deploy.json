@@ -1,0 +1,119 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentEnvironmentName": {
+            "type": "string"
+        },
+        "vmName":{
+            "type": "string"
+        },
+        "assignedDataDisks":{
+            "type": "object"
+        },
+        "tags": {
+            "type": "object",
+            "metadata": {
+                "description": "Optional. Tags of the Virtual Network resource."
+            }
+        },
+        "OSVersion": {
+            "type": "string",
+            "defaultValue": "2016-Datacenter",
+            "allowedValues": [
+                "2016-Datacenter",
+                "2016-Datacenter-Server-Core",
+                "2012-R2-Datacenter"
+            ],
+            "metadata": {
+                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+            }
+        },
+        "bootDiagnostics":{
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Enable Boot Diagnostics."
+                }
+        },
+        "imagePublisher":{
+            "type": "string"
+        },
+        "imageOffer":{
+            "type": "string"
+        },
+        "adminUsername": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring"
+        },
+        "vmSize": {
+            "type": "string",
+            "defaultValue": "Standard_A2_v2",
+            "metadata": {
+            "description": "Size of the virtual machine."
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "defaultValue": "https://pimadeployments.blob.core.windows.net/vmdeployments"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring"
+        }
+    },
+    "variables": {
+        "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'windowsVM.azuredeploy.json', parameters('_artifactsLocationSasToken'))]",
+        "nate-test-rg": {
+            "windowsVMImage":{"value":""},
+            "OSVersion": {"value": "[parameters('OSVersion')]"},
+            "imagePublisher": {"value": "MicrosoftWindowsServer"},
+            "imageOffer": {"value": "WindowsServer"},
+            "adminUsername": {"value": "Admin4IDT"},
+            "adminPassword": {"value": "[parameters('adminPassword')]"},
+            "vaultName": {"value": "central-westus-prod-hub-rsv"},
+            "backupPolicyName": {"value":"VMPolicy"},
+            "backupVaultResourceGroup": {"value":"central-westus-prod-hub-rsv-rg"},
+            "virtualNetworkResourceGroup": {"value":"central-westus-prod-hub-network-rg"},
+            "vNetName": {"value":"central-westus-prod-hub-vnet"},
+            "vNetSubnetName": {"value":"central-westus-prod-hub-vnet-ad"},
+            "diagnosticLogStorageAccountName": {"value":"pimadiaglogssa"},
+            "diagnosticLogStorageResourceGroup": {"value":"central-westus-prod-la-rg"},
+            "azureLogAnalyticsSubscriptionID": {"value":"1db25687-69f8-41dc-845f-2958b094e631"},
+            "azureLogAnalyticsResourceGroup": {"value":"central-westus-prod-la-rg"},
+            "azureLogAnalyticsWorkspaceID": {"value":"central-westus-prod-la"},
+            "vmName": {"value": "[parameters('vmName')]"},
+            "assignedDataDisks": {"value": "[parameters('assignedDataDisks')]"},
+            "vmSize": {"value": "[parameters('vmSize')]"},
+            "tags": {"value": "[parameters('tags')]"},
+            "deploymentEnvironmentName": { "value": "[parameters('deploymentEnvironmentName')]" }
+        },
+        "parametersVm": "[variables(parameters('deploymentEnvironmentName'))]",
+        "ddCount": "[parameters('assignedDataDisks').dataDiskList]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('vmName'),'.','deployVM')]",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('templateUriWindowsVm')]"
+                },
+                "parameters": "[variables('parametersVm')]"
+                }
+        }
+    ],
+    "outputs": {
+        "parentRG": {
+            "type": "object",
+            "value": "[subscription()]"
+        },
+        "checkdisk":{
+            "type": "array",
+            "value": "[variables('ddCount')]"
+        }
+    }
+}

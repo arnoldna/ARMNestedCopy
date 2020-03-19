@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "value": "arnoldna"
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/1db25687-69f8-41dc-845f-2958b094e631/resourceGroups/Automation-RG/providers/Microsoft.KeyVault/vaults/Nates-KeyVault"
+                },
+                "secretName": "windowsAdminPassword"
+                }
+        },
+        "dnsLabelPrefix": {
+            "value": "natea"
+        },
+        "assignedDataDisks": {
+            "value": {
+                "dataDiskList": [
+                ]
+            }
+        }
+    }
+}
