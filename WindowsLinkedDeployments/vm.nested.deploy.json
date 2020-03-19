@@ -66,8 +66,16 @@
             "vmSize": {"value": "[parameters('vmSize')]"},
             "deploymentEnvironmentName": { "value": "[parameters('deploymentEnvironmentName')]" }
         },
-        "parametersVm": "[variables(parameters('deploymentEnvironmentName'))]",
-        "ddCount": "[parameters('assignedDataDisks').dataDiskList]"
+        "prod-rg": {
+            "adminUsername": {"value": "[parameters('adminUsername')]"},
+            "adminPassword": {"value": "[parameters('adminPassword')]"},
+            "dnsLabelPrefix": {"value": "[parameters('dnsLabelPrefix')]"},
+            "vmName": {"value": "[parameters('vmName')]"},
+            "assignedDataDisks": {"value": "[parameters('assignedDataDisks')]"},
+            "vmSize": {"value": "[parameters('vmSize')]"},
+            "deploymentEnvironmentName": { "value": "[parameters('deploymentEnvironmentName')]" }
+        },
+        "parametersVm": "[variables(parameters('deploymentEnvironmentName'))]"
     },
     "resources": [
         {
@@ -87,10 +95,6 @@
         "parentRG": {
             "type": "object",
             "value": "[subscription()]"
-        },
-        "checkdisk":{
-            "type": "array",
-            "value": "[variables('ddCount')]"
         }
     }
 }
