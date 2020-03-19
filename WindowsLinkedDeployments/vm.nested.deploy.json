@@ -30,12 +30,6 @@
                 "description": "Enable Boot Diagnostics."
                 }
         },
-        "imagePublisher":{
-            "type": "string"
-        },
-        "imageOffer":{
-            "type": "string"
-        },
         "adminUsername": {
             "type": "string"
         },
