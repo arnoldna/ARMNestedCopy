@@ -82,7 +82,7 @@
         {
             "name": "[concat(parameters('vmName'),'.','deployVM')]",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
+            "apiVersion": "2019-05-10",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
