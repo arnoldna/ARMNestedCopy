@@ -57,7 +57,7 @@
         },
         "_artifactsLocation": {
             "type": "string",
-            "defaultValue": "https://pimadeployments.blob.core.windows.net/vmdeployments"
+            "defaultValue": "https://raw.githubusercontent.com/arnoldna/ARMNestedCopy/master"
         },
         "_artifactsLocationSasToken": {
             "type": "securestring"
