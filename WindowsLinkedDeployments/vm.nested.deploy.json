@@ -46,6 +46,10 @@
         "_artifactsLocation": {
             "type": "string",
             "defaultValue": "https://raw.githubusercontent.com/arnoldna/ARMNestedCopy/master"
+        },
+        "_artifactsLocationSasToken":{
+            "type":"string",
+            "defaultValue": ""
         }
     },
     "variables": {
