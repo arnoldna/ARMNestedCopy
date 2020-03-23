@@ -57,7 +57,7 @@
     },
     "variables": {
         "templateUriWindowsVm": "[concat(parameters('_artifactsLocation'), '/WindowsLinkedDeployments/WindowsLinkedTemplates/', 'vm.deploy.json')]",
-        "test-rg": {
+        "central-westus-prod-hub-ad-rg": {
             "adminUsername": {"value": "[parameters('adminUsername')]"},
             "adminPassword": {"value": "[parameters('adminPassword')]"},
             "dnsLabelPrefix": {"value": "[parameters('dnsLabelPrefix')]"},

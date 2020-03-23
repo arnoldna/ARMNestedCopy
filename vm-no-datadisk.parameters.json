@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "deploymentEnvironmentName": {
-            "value": "test-rg"
+            "value": "central-westus-prod-hub-ad-rg"
         },
         "vmName": {
             "value":"vm-NO-Disk"
