@@ -9,13 +9,13 @@
             "value":"vm-NO-Disk"
         },
         "adminUsername": {
-            "value": "GEN-UNIQUE"
+            "value": "arnoldna"
         },
         "adminPassword": {
-            "value": "GEN-PASSWORD"
+            "value": "asdf2384quruSDEf!@#"
         },
         "dnsLabelPrefix": {
-            "value": "pdq123"
+            "value": "pdq1deg23"
         },
         "assignedDataDisks": {
             "value": {
